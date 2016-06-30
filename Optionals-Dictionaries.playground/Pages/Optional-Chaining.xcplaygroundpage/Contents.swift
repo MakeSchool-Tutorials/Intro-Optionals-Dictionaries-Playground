@@ -70,7 +70,7 @@ second?.shareMessage()
  
  Hm. That printed out an optional! When using optional chaining, properties and methods return optional types because they might not run! 
  
- - callout(Challenge): Use optional binding _with_ optional chaining to print out just the `message` property of `third`.
+ - callout(Challenge): Use optional binding _with_ optional chaining to bind and print out just the `message` property of `third`.
  
  */
 
