@@ -2,7 +2,7 @@
  ![Make School Banner](./swift_banner.png)
  # Dictionaries
  
- A `Dictionary` type is actually a lot like real world dictionaries. It is a collection type that can store multiple values, and each value has a unique key associated with it. In a real world dictionary, the key would be the world and the value the definition. When you want to know the definition of a word, you use the word itself (key) to look up the definition (value). The `Dictionary` works in the same way!
+ A `Dictionary` type is actually a lot like real world dictionaries. It is a collection type that can store multiple values, and each value has a unique key associated with it. In a real world dictionary, the key would be the word and the value the definition. When you want to know the definition of a word, you use the word itself (key) to look up the definition (value). The `Dictionary` works in the same way!
  
  ## Creating a Dictionary
  
@@ -61,7 +61,7 @@ print("The dictionary is now more consistent and contains \(cities)")
  
  - callout(Challenge): What type will the dictionary return when we give it a key and ask for a value?
  
- - callout(Answer): A `String`, but not just any `String`, an `String?` (optional `String`). Why does this happen? Well, we cannot guarentee the key is actually in the dictionary. This means that we cannot guarenteed we'll actually get a value back. If the key-value pair exists, we'll get an `String?` containing the value. If it doesn't, we'll get an `String?` containing `nil`!
+ - callout(Answer): A `String`, but not just any `String`, an `String?` (optional `String`). Why does this happen? Well, we cannot guarantee the key is actually in the dictionary. This means that we cannot guarantee we'll actually get a value back. If the key-value pair exists, we'll get an `String?` containing the value. If it doesn't, we'll get an `String?` containing `nil`!
  
  When trying to retrieve a value for a key, there is a possibility that key-value pair does not exist... If it doesn't, the dictionary will return `nil`!
  
