@@ -3,7 +3,7 @@
  
  # Optional Binding
  
- A more "Swift-y" way of testing and using an optional value is called **optional binding**. To do this we test for the presence of an value and, if it exists, we create a new variable for this value in a narrower scope. Here, we "bind" the value of `optionalInt` (if present) to a new constant named `definitelyAnInt`, which only exists inside the `if/else` block, and print it...
+ A more "Swift-y" way of testing and using an optional value is called **optional binding**. To do this we test for the presence of an value and, if it exists, we create a new variable for this value in a narrower scope. Here, we "bind" the value of `optionalInt` (if present) to a newly scoped constant named `optionalInt`, which only exists inside the `if/else` block, and print it...
  
  */
 var optionalInt: Int? = 15
