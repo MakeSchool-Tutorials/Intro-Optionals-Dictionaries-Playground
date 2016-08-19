@@ -50,9 +50,7 @@ if maybeAnInt != nil {
         [154.4, nil, 133, 13.4, 221.3, nil, nil, 103.2]
  
  */
-
-
-
+var optionalDoubleArray: [Double?] = [154.4, nil, 133, 13.4, 221.3, nil, nil, 103.2]
 /*:
  
  - callout(Challenge): Write code to iterate through the array and count the number of `nil` values while also summing all the non-nil values. Make sure to force unwrap each element safely!
@@ -66,9 +64,17 @@ if maybeAnInt != nil {
         There were 3 nil values and the sum is 625.3.
  
  */
-
-
- 
+var numberOfNils = 0
+var sum: Double = 0.0
+for optionalDouble in optionalDoubleArray {
+    if (optionalDouble != nil) {
+        sum += optionalDouble!
+    }
+    else {
+        numberOfNils += 1
+    }
+}
+print("There were \(numberOfNils) nil values and the sum is \(sum)")
 /*:
  [Next](@next)
  */

@@ -53,9 +53,9 @@ second?.shareMessage()
  
  - experiment: Use optional chaining to call `shareMessage` on `third` and `fourth`. What happens?
  */
-
-
-
+third?.shareMessage()
+fourth?.shareMessage()
+// Notice how shareMessage() function from fourth is not run because fourth is set to nil
 /*:
  
  Now, what if we wanted to access a `Secret?`s `message` property and save it to a variable? Could we use optional chaining for that?
@@ -63,9 +63,7 @@ second?.shareMessage()
  - experiment: Try printing the `message` directly from `second` using optional chaining (do not call `shareMessage`).
  
  */
-
-
-
+print(second?.message)
 /*:
  
  Hm. That printed out an optional! When using optional chaining, properties and methods return optional types because they might not run! 
@@ -73,7 +71,10 @@ second?.shareMessage()
  - callout(Challenge): Use optional binding _with_ optional chaining to bind and print out just the `message` property of `third`.
  
  */
-
+// Note that the result of second?.message is simply an optional value, so we use optional binding to unwrap it
+if let secondMessage = second?.message {
+    print(secondMessage)
+}
 
 
 /*:

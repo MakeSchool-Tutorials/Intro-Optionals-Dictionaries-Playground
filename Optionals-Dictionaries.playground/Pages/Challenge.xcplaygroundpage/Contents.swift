@@ -19,9 +19,59 @@
  - note: Why are we using functions for all of this? You can consider these functions as "helper functions". When coding larger applications, it's important to "encapsulate" your code. The rest of your application does not need to know you are using a dictionary as the core data structure here. It only needs to know how to interact with the data!
  
  */
+var phoneBook: [String: String] = [:]
+// key: name , value: phone number
 
+//
+func addContact(name: String, phoneNumber: String) {
+    phoneBook[name] = phoneNumber
+    print("\(name) has been added to your phone book")
+}
 
+func findContact(name: String) {
+    if phoneBook[name] == nil {
+        print("\(name) is not in your phone book!")
+    } else {
+        print("\(name) can be called at \(phoneBook[name]!)")
+    }
+}
 
+func updateContact(name: String, phoneNumber: String) {
+    if phoneBook[name] == nil {
+        print("\(name) did not exist. It has now been added to you phone book.")
+    } else {
+        print("\(name) has been updated in your phone book")
+    }
+    phoneBook[name] = phoneNumber
+}
+
+func deleteContact(name: String) {
+    if phoneBook[name] == nil {
+        print("\(name) did not exist.")
+    } else {
+        phoneBook[name] = nil
+        print("\(name) has been deleted from your phone book.")
+    }
+}
+
+func allContacts() {
+    //.sort() returns a sorted array of keys for the respective dictionary
+    for key in phoneBook.keys.sort() {
+        findContact(key)
+    }
+}
+
+addContact("Brian", phoneNumber: "4081234567")
+addContact("Andy", phoneNumber: "6501234567")
+addContact("Siraj", phoneNumber: "6151234567")
+addContact("Veronica", phoneNumber: "8181234567")
+findContact("John")
+findContact("Veronica")
+updateContact("Siraj", phoneNumber: "9141234567")
+updateContact("Jesse", phoneNumber: "4151234567")
+deleteContact("Ben")
+deleteContact("Siraj")
+allContacts()
 
 
 
