@@ -54,8 +54,20 @@ print("Outside of the 'if let', optionalInt contains \(optionalInt)")
          There were 5 nil values and the sum is 3466.
  
  */
+var optionalIntArray: [Int?] = [555, nil, 331, 135, 2213, nil, nil, 232, nil, nil]
+var numberOfNils = 0
+var sum = 0
 
+for optionalInt in optionalIntArray {
+    if let optionalInt = optionalInt {
+        sum += optionalInt
+    }
+    else {
+        numberOfNils += 1
+    }
+}
 
+print("There were \(numberOfNils) nil values and the sum is \(sum)")
 
 
 
