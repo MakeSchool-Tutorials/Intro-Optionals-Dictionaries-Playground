@@ -2,7 +2,7 @@
  ![Make School Banner](./swift_banner.png)
  # Dictionaries
  
- A `Dictionary` type is actually a lot like real world dictionaries. It is a collection type that can store multiple values, and each value has a unique key associated with it. In a real world dictionary, the key would be the word and the value the definition. When you want to know the definition of a word, you use the word itself (key) to look up the definition (value). The `Dictionary` works in the same way!
+ A `Dictionary` type is actually a lot like real world dictionaries. It is a collection type that can store multiple values, and each value has a unique key associated with it. In a real world dictionary, the key would be the word and the value would be the definition. When you want to know the definition of a word, you use the word itself (key) to look up the definition (value). The `Dictionary` works in the same way!
  
  ## Creating a Dictionary
  
