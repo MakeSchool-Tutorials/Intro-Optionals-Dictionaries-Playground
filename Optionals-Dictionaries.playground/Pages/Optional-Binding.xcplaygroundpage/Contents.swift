@@ -38,7 +38,8 @@ print("Outside of the 'if let', optionalInt contains \(optionalInt)")
  If you use the `!= nil` syntax when you need to work with the actual value, then you have to use "force unwrapping" with the `!` we saw on the last page. Remember what we said about "force unwrapping"? If the value does not exist, then your code will crash! By sticking to if-let you never have to "force unwrap" and you will not accidentally forget to check for `nil`.
  
  ## A repeat challenge
- 
+ */
+/*:
  - callout(Challenge): Define an array of optional `Int` below that contains:
  
          [555, nil, 331, 135, 2213, nil, nil, 232, nil, nil]
