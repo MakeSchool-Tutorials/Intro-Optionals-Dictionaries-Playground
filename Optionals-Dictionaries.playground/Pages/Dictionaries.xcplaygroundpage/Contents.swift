@@ -1,98 +1,98 @@
 /*:
  ![Make School Banner](./swift_banner.png)
- # Dictionaries
+ # ディクショナリ
  
- A `Dictionary` type is actually a lot like real world dictionaries. It is a collection type that can store multiple values, and each value has a unique key associated with it. In a real world dictionary, the key would be the word and the value would be the definition. When you want to know the definition of a word, you use the word itself (key) to look up the definition (value). The `Dictionary` works in the same way!
+  `Dictionary`型は実世界の辞書とよく似ています。複数の値を保存可能なコレクション型で、各値に一意のキーが関連付けられています。実世界の辞書では、キーは単語で、値が定義になります。単語の定義を知りたければ、単語そのもの(キー)を使用して、定義(値)を参照します。`Dictionary`も同じ方法で機能します！
  
- ## Creating a Dictionary
+ ## ディクショナリの作成
  
- Let's jump right in and define a new `Dictionary` variable.
+ 早速新しい`Dictionary`変数を定義しましょう。
  
  */
-var cities: [String: String] = ["New York City": "United States of America", "Paris": "France", "London": "England"]
+var cities: [String: String] = ["ニューヨーク": "アメリカ合衆国", "パリ": "フランス", "ロンドン": "イギリス"]
 /*:
  
- Interesting, huh? Declaring a `Dictionary` type kind of looks similar to declaring an `Array` but with one small difference... In an `Array`, you only store on type of data so an `Array` of `String`s would be declared with `[String]` type. In a `Dictionary`, you have keys and values so you need two types! The key type comes first, followed by a colon `:`, followed by the value type. Our `cities` `Dictionary` has `String` keys and `String` values.
+ 面白いですよね？ `Dictionary`型の宣言は、`Array`の宣言に似ていますが、一つだけ小さな違いがあります。`Array`では、データの型のみ保存するので`String`の`Array`は`[String]`型で宣言されます。`Dictionary`ではキーと値があるので2つの型が必要です！キー型が最初で、次にコロン`:`、そして値型と続きます。`cities`の`Dictionary`には`String`キーと`String`値があります。
  
- Each _key-value pair_ (word and definition pair in a real world dictionary) is separated by commas.
+ キー値ペア(実世界の辞書の単語と定義のペア)は、それぞれカンマで区切られます。
  
- - callout(Challenge): If real world dictionary has words as _keys_ and definitions as _values_, what are the _keys_ in the `cities` dictionary and what Swift type are they? What are the _values_ in the `cities` dictionary and what Swift type are they?
+ - callout(課題): 現実の辞書では単語がキー、定義が値だとすると、`cities`ディクショナリのキーは何で、Swiftのどの型が使用されていますか？`cities`ディクショナリのキーは何で、Swiftのどの型が使用されていますか？
  
- - callout(Answer): The keys are cities of type `String` and the values are countries of type `String`!
+ - callout(回答): キーは`String`型の都市で、値は`String`型の国です！
  
-    The type of a dictionary depends on both the type of its key and the type of its value. The syntax to declare a dictionary type is `[<key type>: <value type>]`.
+    ディクショナリの型はキーの型と値の型の両方に依存します。ディクショナリ型を宣言する構文は`[<key type>: <value type>]`です。
 
- ## Examine the Dictionary
+ ## ディクショナリを調べる
  
- To retrieve the number of key-value pairs, you can use the `count` property just like with arrays. `isEmpty` works as well and returns a `Bool` just like with arrays.
+ キー値ペアの数を取得するには、配列の場合のように`count`プロパティが使えます。`isEmpty`も同じように機能し、配列の場合のように`Bool`を返します。
  
  */
 if cities.isEmpty {
-    print("Cities is empty!")
+    print("都市がありません！")
 } else {
-    print("The dictionary contains \(cities.count) items.")
-    print("The items are \(cities)")
+    print("ディクショナリは \(cities.count) の項目を含んでいます。")
+    print("項目は \(cities)です。")
 }
 /*:
  
- ## Adding items to a dictionary
+ ## ディクショナリに項目を追加する
  
- You can add a new item to a dictionary like this...
+ ディクショナリに次のように新しい項目を追加できます。
  
  */
-cities["San Francisco"] = "USA"
-print("The dictionary now contains \(cities)")
+cities["サンフランシスコ"] = "USA"
+print("ディクショナリは今 \(cities)を含んでいます。")
 /*:
  
- It's just like updating the value in an array, except instead of putting the index number inside the brackets, you put the key.
+ 配列に含まれる値を更新するときに似ていますが、インデックス番号を角括弧の中に入れる代わりにキーを入れます。
  
- ## Updating a value
+ ## 値の更新
  
- Hm. We put New York City's country as `"United States of America"` but San Francisco's country as `"USA"`. That's a bit inconsistent! Let's fix that.
+ さて、ニューヨークの国を`"アメリカ合衆国"`としましたが、サンフランシスコの国は`"USA"`としました。ちょっと一貫性に欠けていますね！直してみましょう。
  
- You can also the change a key's value in the same way you set it...
+ 設定したときと同じようにキーの値も変更できます。
  
  */
-cities["San Francisco"] = "United States of America"
-print("The dictionary is now more consistent and contains \(cities)")
+cities["サンフランシスコ"] = "アメリカ合衆国"
+print("今ディクショナリは一貫性があります。\(cities)を含んでいます。")
 /*:
  
- ## Getting a value from a dictionary
+ ## ディクショナリから価値を得る
  
- - callout(Challenge): What type will the dictionary return when we give it a key and ask for a value?
+ - callout(課題): キーを渡して値を求めたら、ディクショナリはどのような型を返すでしょうか？
  
- - callout(Answer): A `String`, but not just any `String`, an `String?` (optional `String`). Why does this happen? Well, we cannot guarantee the key is actually in the dictionary. This means that we cannot guarantee we'll actually get a value back. If the key-value pair exists, we'll get an `String?` containing the value. If it doesn't, we'll get an `String?` containing `nil`!
+ - callout(回答): `String`ではありますが、`String`ではなくて`String?`(オプショナルの`String`)です。なぜこうなるのでしょう？キーがディクショナリにあると保証できません。これはつまり、確実に値を取得できる保証がないことを意味します。キー値のペアが存在する場合は、値が格納された`String?`を取得します。存在しない場合は`nil`が格納された`String?`を取得します！
  
- When trying to retrieve a value for a key, there is a possibility that key-value pair does not exist... If it doesn't, the dictionary will return `nil`!
+ キーの値を取得しようとすると、キー値のペアが存在しない場合があります。存在しない場合、ディクショナリは`nil`を返します！
  
- We can retrieve the value for a key by passing in the key just like we do when we access elements of an array.
+ 配列の要素にアクセスするのと同じようにキーを渡すことで、キーの値を取得できます。
  
  */
-var countryForLondon = cities["London"]
-var countryForSydney = cities["Sydney"]
-print("London is in \(countryForLondon) and Sydney is in \(countryForSydney)")
+var countryForLondon = cities["ロンドン"]
+var countryForSydney = cities["シドニー"]
+print("ロンドンは \(countryForLondon)にあり、シドニーは \(countryForSydney)にあります。")
 /*:
  
- Since dictionaries are optionals, it's best to use optional binding when accessing key-value pairs!
+ ディクショナリはオプショナルなので、キー値ペアにアクセスするにはオプショナルバインディングを使うのが一番です!
  
  */
-if let country = cities["Sydney"] {
-    print("Sydney is in \(country).")
+if let country = cities["シドニー"] {
+    print("シドニーは \(country)にあります。")
 } else {
-    print("The dictionary does not contain Sydney!")
+    print("ディクショナリはシドニーを含んでいません！")
 }
 /*:
  
- ## Other useful things to know
+ ## 知るべき他の有用なこと
  
- You can remove a key-value pair simply by setting the key's value to nil...
+ キー値ペアを削除するにはキーの値を nil に設定します。
  
  */
-cities["San Francisco"] = nil
-print("San Francisco has been removed and the dictionary now contains \(cities)")
+cities["サンフランシスコ"] = nil
+print("サンフランシスコは削除されました。今ディクショナリは\(cities)を含んでいます。")
 /*:
  
- To define a new empty dictionary you can choose between two different ways...
+ 新しい空のディクショナリを定義するには、2種類の方法を選択できます。
  
  */
 var exampleDictionary = [String: Int]()
@@ -100,30 +100,30 @@ var exampleDictionary = [String: Int]()
 var anotherDictionary: [String: Double] = [:]
 /*:
  
- Notice how the type of the values is `Int` in one `exampleDictionary` and `Double` in `anotherDictionary`. The value type can be any type you want. The key can also be any type you want. However, the key has to be _hashable_ . This has to do with how the dictionary actually works beneath the hood, but that's out of the scope of this tutorial. All the Swift basic types work as a key, and there are rarely any situations that you will need a custom type to be the key.
+  `exampleDictionary`では値の型が`Int`で、「anotherDictionary」では`Double`であることに注意してください。値の型は好きな型に設定できます。キーも好きな型に設定できます。ただし、キーはハッシュ可能でなければなりません。. これはディクショナリが実際にどう機能するかに関係しますが、このチュートリアルの対象範囲ではありません。Swiftの基本型はすべてキーとして機能し、カスタム型をキーとして使用する必要はめったにありません。
  
- - important: Unlike arrays, dictionaries are _unordered_, which means they do not keep the values in any particular order. Dictionaries are helpful in situations where you want to quickly look up a value based on its unique key.
+ - important: 配列とは違い、ディクショナリは順序なしの状態です。これはつまり、値を特定の順序で維持していはいないという意味です。ディクショナリは一意のキーに基づいて値をすばやく参照したい場合に役立ちます。
  
- You can iterate over all the keys in a dictionary with...
+ ディクショナリのすべてのキーについて処理を繰り返すことができます。
  
  */
 
 for key in cities.keys {
-    print("\(key) is in \(cities[key]!).")
+    print("\(key) は \(cities[key]!)にあります。")
 }
 
 /*:
  
- To empty the dictionary, you set it to `[:]`...
+ ディクショナリを空にするには`[:]`に設定します。
  
  */
 cities = [:]
-//: - note: `[:]` is the literal for empty dictionary, it can't be `[]` because that means empty array
+//: - note: `[:]`は空のディクショナリのリテラルです。空の配列を意味するので、`[]`にすることはできません。
 /*:
  
- Now, let's move onto a challenge. Feel free to reference back to any of these pages as needed.
+ では、課題に移りましょう。必要に応じてこちらのページを見直してください。
  
  */
 /*:
- [Previous](@prev) | [Next](@next)
+ [前へ](@previous) | [次へ](@next)
  */

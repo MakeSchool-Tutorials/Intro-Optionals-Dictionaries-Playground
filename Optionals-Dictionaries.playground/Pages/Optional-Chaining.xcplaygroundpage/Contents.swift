@@ -1,10 +1,10 @@
 /*:
  ![Make School Banner](./swift_banner.png)
- # Calling Methods on Optionals
+ ## Optionalsのメソッドを呼び出し
  
- You cannot call methods directly on optional values. You must bind them to a value with if-let or force unwrap the optional when calling the method. Calling a method directly on an optional is a compile-time error so your code won't even finish compiling!
+  オプショナル型の値にメソッドを直接呼び出すことはできません。if-letを使用してメソッドを値にバインドするか、メソッドの呼び出し時にオプショナル型のアンラップを強制する必要があります。オプショナル型でメソッドを直接呼び出すとコンパイルタイムエラーになるので、コードはコンパイルを永久に完了しません！
  
- We've created a simple class below to demonstrate this.
+ これを実証するため、下にシンプルなクラスを作成しました。
  
  */
 
@@ -16,19 +16,19 @@ class Secret {
     }
     
     func shareMessage() {
-        print("My secret is: '\(message)'.")
+        print("私の秘密は: '\(message)'.")
     }
 }
 
-var first: Secret? = Secret(message: "It's a good idea to use optional binding with if-lets!")
-var second: Secret? = Secret(message: "Remember to check optionals for nil.")
-var third: Secret? = Secret(message: "Optional chaining is pretty cool too.")
-var fourth: Secret? = Secret(message: "I force unwrap and never check for nil because I'm lazy and don't care about my code crashing!")
-fourth = nil // that's bad practice, let's get rid of that secret!
+var first: Secret? = Secret(message: "if-letsとともにオプショナルバインディングを使用するのはいいアイデアですね！")
+var second: Secret? = Secret(message: "nilのためにオプショナルをチェックすることを忘れないでください。")
+var third: Secret? = Secret(message: "オプショナルチェイニングも素晴らしいですね。")
+var fourth: Secret? = Secret(message: "私は面倒くさがりで、コードがクラッシュしても構わないので、nilのためにアンラップを強制して、絶対にチェックしません！")
+fourth = nil // これはバッドプラクティスです。その秘密をなくしましょう！
 
 /*:
  
- Since these are all `Secret?` types, we cannot just call `shareMessage()`. We must treat it speacial since it is an optional `Secret`.
+ これらはすべて`Secret?`型なので、単純に`shareMessage()`を呼び出すことはできません。オプショナル型の`Secret`なので、特別な処理をする必要があります。
  
  */
 
@@ -38,44 +38,44 @@ if let first = first {
 
 /*:
  
- Now, that's a lot of syntax for a simply method call... There must be a better way!
+ これはシンプルなメソッドの呼び出しなのに、構文は結構大変ですね ... もっと良い方法があるはずです！
  
- ## Optional chaining
+ ## オプションの連鎖
  
- But we're programmers and we like working around the rules. You call methods directly on optionals if you use a technique called **optional chaining**. Chaining allows you to try to call a method on an optional, which calls the method if the optional has a value, and does nothing if it does not. Chaining is performed by placing a question mark between the variable name and the dot, parenthesis, or bracket that follows it:
+ ですが私たちはプログラマー。ルールにどうにか対処できないかと取り組むのが好きです。「オプショナルチェイニング」というテクニックを使用すれば、オプショナル型でメソッドを直接呼び出せます。チェイニングは、オプショナル型でメソッドを呼び出すためのテクニックで、オプショナル型に値が含まれる場合はメソッドを呼び出し、含まれない場合は何も実行しません。チェイニングを実行するには、変数名とドット、括弧、またはそれに続くブラケットの間に疑問符を置きます。
  */
 
 second?.shareMessage()
 
 /*:
  
- Placing a `?` after the name `second` will cause Swift to check whether the variable is `nil` before attempting to call `shareMessage`. If it is `nil`, nothing will happen. If it has a value, the method will be called!
+ `second`という名前の後に「?」を付けると、プログラムは`shareMessage`の呼び出しを試みる前に、変数が`nil`であるか否かをチェックします。`nil`の場合は何も実行されません。値が含まれていると、メソッドが呼び出されます！
  
- - experiment: Use optional chaining to call `shareMessage` on `third` and `fourth`. What happens?
+ - experiment: オプショナルチェイニングを使用して、`shareMessage`を`third`および`fourth`で呼び出してください。何が起こりますか？
  */
 
 
 
 /*:
  
- Now, what if we wanted to access a `Secret?`s `message` property and save it to a variable? Could we use optional chaining for that?
+ では、`Secret?`の`message`プロパティにアクセスし、変数に保存してみるとどうなるでしょうか？ その際にオプショナルチェイニングを使ってみましょう。
  
- - experiment: Try printing the `message` directly from `second` using optional chaining (do not call `shareMessage`).
- 
- */
-
-
-
-/*:
- 
- Hm. That printed out an optional! When using optional chaining, properties and methods return optional types because they might not run! 
- 
- - callout(Challenge): Use optional binding _with_ optional chaining to bind and print out just the `message` property of `third`.
+ - experiment: オプショナルチェイニングを使用して`message`を`second`から直接出力してみてください（`shareMessage`は呼び出さないでください）。
  
  */
 
 
 
 /*:
- [Previous](@prev) | [Next](@next)
+ 
+ ほら、オプショナル型が出力されましたね！ オプショナルチェイニングを使用すると、プロパティとメソッドは実行されない可能性があるため、オプショナル型を返します。
+ 
+ - callout(課題): オプショナルバインディングとオプショナルチェイニングを併用し、`third`の`message`プロパティだけをバインドして出力してください。
+ 
+ */
+
+
+
+/*:
+ [前へ](@previous) | [次へ](@next)
  */

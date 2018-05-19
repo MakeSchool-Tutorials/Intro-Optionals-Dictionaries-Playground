@@ -1,22 +1,22 @@
 /*:
  ![Make School Banner](./swift_banner.png)
- # Dictionaries and Optionals Challenge
+ # ディクショナリとオプションの挑戦
  
- ## Dictionaries as a phone book
+ ## 電話帳としてのディクショナリ
  
- In this exercise, we are going to create a simple phone book data structure using a dictionary.
+ この練習では、ディクショナリを使ってシンプルな電話帳データ構造を作成します。
  
- ### Core challenge
+ ### コアチャレンジ
  
- 1. Create an empty dictionary of type `[String: String]`. This will store name `String`s as keys and phone number `String`s as values
- 1. Create a function called `addContact` with two parameters -- `name` of type `String` and `phoneNumber` of type `String`. Use it to add a new phone number to your dictionary with a key of `name`. It should also print "<contact name> has been added to your phone book."
- 1. Create a function called `findContact` with one parameter -- `name` of type `String`. Use it to search your dictionary for a contact. If it finds it, it should print "<contact name> can be called at <contact phone number>.". If the contact does not exist, it should print "<contact name> is not in your phone book!".
- 1. Create a function called `updateContact` with two parameters -- `name` of type `String` and `phoneNumber` of type `String`. Use it to add a new phone number to your dictionary with a key of `name`. If the contact exists in your phone book, it should print "<contact name> has been updated in your phone book." If the contact does not exist, it should print "<contact name> did not exist. It has now been added to your phone book."
- 1. Create a function called `deleteContact` with one parameter -- `name` of type `String`. Use it to delete a phone number from your dictionary. If the contact exists in your phone book, it should print "<contact name> has been deleted from your phone book." If the contact does not exist, it should print "<contact name> did not exist."
- 1. Test your code out! Add a few contacts. Try finding a few contacts (including some you know are not in your phone book). Update some contacts (including some you know are not in your phone book). Delete a few contacts (including some you know are not in your phone book).
- 1. Create a function called `allContacts`. It should iterate through each contact and print it out as "<contact name> can be called at <contact phone number>.". Can you reuse another function here? For an added challenge, try printing them in alphabetical order. This will likely require extensive Googling!
+ 1. `[String: String]`型の空のディクショナリを作成します。これは`String`の名前をキー、`String`の電話番号を値として保存します。
+ 1. `String`型の`name`と`String`型の`phoneNumber`という2つのパラメーターを持つ「addContact」という関数を作成します。これを使って「name」がキーとなる、新しい電話番号をディクショナリに追加します。また、「<連絡先氏名>が電話帳に追加されました。」と出力します。
+ 1. `String`型の`name`というパラメーターを持つ`findContact`という関数を作成します。これを使ってディクショナリから連絡先を検索します。見つかると、「<連絡先氏名>の電話番号は<連絡先電話番号>です。」と出力します。連絡先が存在しない場合は、「<連絡先氏名>は電話帳に含まれていません！」と出力します。
+ 1. `String`型の`name`と`String`型の`phoneNumber`という2つのパラメーターを持つ`updateContact`という関数を作成します。これを使って`name`がキーの新しい電話番号をディクショナリに追加します。連絡先が電話帳に存在する場合は、"<連絡先氏名>が電話帳で更新されました。"と出力されます。連絡先が存在しない場合は、"<連絡先氏名>は見つかりませんでした。電話帳に追加されました。"と出力されます。
+ 1. String型のパラメーター`name`を持つ`deleteContact`という関数を作成します。これを使ってディクショナリから電話番号を削除します。連絡先が電話帳に存在する場合は、"<連絡先氏名>は電話帳から削除されました。"と出力されます。連絡先が存在しない場合は、"<連絡先氏名>は見つかりませんでした。"と出力されます。
+ 1. コードを試してみましょう！ 連絡先をいくつか追加します。連絡先 (電話帳にないことが分かっているものも含む) をいくつか見つけます。連絡先 (電話帳にないことが分かっているものも含む) を更新します。連絡先 (電話帳にないことが分かっているものも含む) をいくつか削除します。
+ 1. `allContacts`という関数を作成します。この関数は各連絡先を繰り返し処理して、"<連絡先氏名>の電話番号は、<連絡先電話番号>です。"と出力します。ここで別の関数をもう一度使えますか？ 追加の課題では、アルファベット順に出力してみましょう。Google でいろいろ調べる必要があるかもしれませんね！
  
- - note: Why are we using functions for all of this? You can consider these functions as "helper functions". When coding larger applications, it's important to "encapsulate" your code. The rest of your application does not need to know you are using a dictionary as the core data structure here. It only needs to know how to interact with the data!
+ - note: なぜすべてに関数を使用しているのでしょうか？ これらの関数は「ヘルパー関数」と考えることができます。大規模なアプリケーションを作成する際は、コードを「カプセル化」することが重要になります。アプリケーションの残りの部分は、あなたがディクショナリをコア データ構造として使用しているのだと知る必要はありません。データの操作方法だけわかっていればいいんです！
  
  */
 
@@ -33,5 +33,5 @@
 
 
 /*:
- [Previous](@prev) | [Next](@next)
+ [前へ](@previous) | [次へ](@next)
  */

@@ -1,24 +1,24 @@
 /*:
  ![Make School Banner](./swift_banner.png)
- # Optionals in Swift
+ # スウィフトのオプション
  
- ## Introduction to Optionals
+ ## スウィフトのオプション
  
- Sometimes, it's useful to express the fact that a variable may contain a value or no value at all. Swift allows us to do this with **optionals**. Optionals contain **either** a value **or** `nil` (meaning "no value"). Optionals are like boxes that may have something inside, or they may have nothing inside.
+ プログラミングでは、変数が値を含むことも含まないこともあるという事実を表現できると便利な場合があります。 Swiftでは、**オプショナル**を使用してこれを実現できます。 オプショナルは値**または**`nil`(「値なし」を意味する) の**いずれか**を格納します。 オプショナルは箱のようなもので、中に何かが入っていることもあれば、何も入っていないこともあります。
  
- Some languages, like Objective-C, Python and Java, allow a variable to be set to `nil` or `null` without its type expressly indicating that a value may be absent. Swift is much more strict about when variables can lack a value, and this is very helpful in avoiding bugs where we think we have a value when in fact we don't. Functions can return an optional to indicate when the operation has failed or they have no value to give back to you.
+ Objective-C、Python、Javaなど一部の言語は、値がない可能性を型が明示していなくても変数を`nil`または`null`に設定できます。 Swiftは「変数がいつ値を持たなくてもいいか」についてかなり厳格なので、値があると思っていたのに実際はないというバグを回避するのに非常に役立ちます。 関数は処理が失敗したか、返す値がない場合にオプショナルを返すことができます。
  
- We express the fact that a value is of optional type by putting a question mark (`?`) at the end of the type name. For example, here is how we declare a variable of type `Int?` (read as "optional `Int`"):
+ 値がオプショナル型であることを示すには、型の名前の最後に疑問符 (`?`) を追加します。 例えば、`Int?`(「オプショナルの`Int`と読みます」) 型の変数は次のように宣言します。
  */
 var maybeAnInt: Int? = 15
-//: Here, we have expressly given the variable a value of 15, but we could just as easily have assigned it `nil`:
+//: ここでは、15の変数値を明確に設定しましたが、それと同じぐらい簡単に`nil`を割り当てることもできました:
 maybeAnInt = nil
-//: Now `maybeAnInt` is `nil`, which is to say it has _no value_. If `maybeAnInt` had just been of type Int, we could not have set it to `nil`.
+ここで`maybeAnInt`が`nil`（_値がない状態_）です。 `maybeAnInt`がちょうどInt型であった場合、それを` nil`に設定することはできませんでした。
 /*:
- ## Unwrapping an Optional
+ ## Optionalのアンラップ
  
- When we retrieve the value from an optional, we say we "unwrap" it. This is like opening the box and seeing whether there's anything inside. We can test whether an optional has a value by comparing the whole thing to `nil`. If it is not equal to `nil`, it contains a value. Woo hoo!
- We can then safely use **force unwrapping** to get its value. Force unwrapping is done by putting an exclamation point (`!`) after the name of the variable we want to unwrap. This assures Swift that the optional contains a value and that it is therefore safe to read. If we're wrong, the code will crash. Here, we test whether `maybeAnInt` has a value and if it does, we rip open the box (force unwrap) and print its value.
+ オプショナルから値を取得することを「アンラップする」と言います。 これは、箱を開けて中に何か入っているか確かめるのに相当します。 `nil`と比較することでOptionalに値があるかどうかを確かめられます。 `nil`と等しくなければ値が格納されていることになります。 実に簡単です！
+ これで**強制アンラップ**を安全に使用してその値を取得できます。 強制アンラッピングを行うには、アンラップしたい変数名の後に感嘆符（`!`）を付けます。 これによりSwiftではOptionalは必ず値が格納されるので、安全に読み取れます。 If we're wrong, the コード will crash. ここでは`maybeAnInt`が値を持つか検証し、値がある場合は箱を開けて (強制アンラップ) をその値を出力します。
  */
 if maybeAnInt != nil {
     print("maybeAnInt contains a value, and it is \(maybeAnInt!)")
@@ -26,13 +26,13 @@ if maybeAnInt != nil {
     print("maybeAnInt does not contain a value")
 }
 /*:
- - experiment:
- Try changing the value of `maybeAnInt` from `nil` to something else above. Notice which message is printed depending on the value.
+ - 実験：
+ `maybeAnInt`の値を`nil`から何か上の数値に変更します。 値に応じてどのメッセージが出力されるか注意してください。
  */
 /*:
- ## Optional Binding
+ ## オプショナルバインディング
  
- A more compact way of testing and acting on an optional value is **optional binding**, where we test for the presence of an object and, if it exists, we create a new variable for this object in a narrower scope. Here, we "bind" the value of `maybeAnInt` (if present) to a new constant named `definitelyAnInt`, which only exists inside the `if/else` block, and print it:
+ オプショナルの値を検証するもっとコンパクトな方法が**オプショナル バインディング**です。オブジェクトの存在を検証し、存在する場合はこのオブジェクト用の新しい変数をより狭いスコープで作成します。 ここでは、`maybeAnInt`(存在する場合) の値を「if/else」ブロック内のみに存在する`definitelyAnInt`という新しい定数に「バインド」し、出力します。
  */
 if let definitelyAnInt = maybeAnInt {
     print("maybeAnInt contains a value, and it is \(definitelyAnInt)")
@@ -40,64 +40,64 @@ if let definitelyAnInt = maybeAnInt {
     print("maybeAnInt does not contain a value")
 }
 /*:
- - experiment:
- Try changing the value of `maybeAnInt` again, and again take note that if it contains a value, the message indicates this and the local variable `definitelyAnInt` has the same value. If it doesn't contain a value, then `definitelyAnInt` won't be created.
+ - 実験：
+ `maybeAnInt`の値を再度変更して、値を格納する場合はメッセージがこれを示し、ローカル変数`definitelyAnInt`は同じ値になることに注意してください。 値を格納しない場合、`definitelyAnInt`は作成されません。
  */
 /*:
- ## Implicitly Unwrapped Optionals
+ ## 暗黙的にアンラップされたオプション
  
- Sometimes we want to indicate that an optional will always have a value when we need to read it. For example, this happens when we separate the declaration of an optional from the first time we set its value. The first time we declare the optional, it won't have a value, but we'll set it before we use it. To support this scenario, we can declare a variable as an **implicitly unwrapped optional**. Implicitly unwrapped optionals are declared by placing an exclamation point (`!`) after the type to indicate that they **can** contain `nil`, but must always have a value when they are read:
+ 値を読み取る必要があるときにはいつでも、オプショナルは値を持つのだと示したい場合もあります。 例えば、オプショナルの宣言を値の初期設定と分離する場合がこれに当たります。 Optionalを最初に宣言した時点では、これは値を持ちませんが、使用する前に値を設定します。 こうしたシナリオに対応するために、変数を**Implicitly Unwrapped Optional**（暗黙的にアンラップされたOptional）として宣言できます。 Implicitly Unwrapped Optionalsを宣言するには、`nil`を格納**できる**が読み取るときは常に値がなければならないことを示す感嘆符 (`!`) を、該当する型の後に付加します。
  */
 var alwaysAString: String! = nil
 /*:
- Notice that we initially assign `nil` to this implicitly unwrapped optional `String`. If we were to try to use it at this point, we would trigger a runtime error:
+ 最初に`nil`をこのImplicitly Unwrapped Optional`String`に代入することに注意してください。 この時点で使おうとするとランタイムエラーが発生します。
  */
 //let stringLength = alwaysAString.characters.count
 /*:
- Try uncommenting the line above and seeing what happens. You will probably notice that the remainder of the Playground can no longer be evaluated. This is because the underlying process crashes when it attempts to access the variable. That's why we have to ensure that we never read an implicitly-unwrapped optional before setting its value.
+  上の行のコメントを外すとどうなるか試してみてください。 Playgroundの残りが評価されなくなることに気付くかもしれません。 これは変数にアクセスしようとする際に根底のプロセスが異常終了するからです。 そのため、値を設定する前にImplicitly Unwrapped Optionalを絶対に読み取らないようにしなければなりません。
  */
-/*: Let's assign a value so the variable is no longer `nil`:
+/*:値を代入して変数を`nil`ではなくしましょう。
  */
 alwaysAString = "Now I have a value!"
-//: Now, when we print this string, it is implicitly unwrapped to the `String` value it contains:
+//: さて、この文字列をプリントするときに、含まれている`String`値に対してImplicitly Unwrappedが行われています。
 print(alwaysAString)
 /*:
- The important takeaway here is that declaring a variable as implicitly unwrapped allows Swift to _automatically_ unwrap the value whenever it is used. This is the inverse of the usual situation: normally, we use the `!` to force-unwrap a value once we're sure it contains a value. With implicitly unwrapped optionals, we assert from the moment we declare the variable that it will _never_ be `nil` when it is used. That can save us a lot of typing (and visual clutter!) for variables that are accessed frequently. But it's important to be 100% sure that the variable is assigned before it's read the first time, because otherwise accessing it will result in crash.
+ ここでの重要なポイントは、変数をImplicitly Unwrappedと宣言すると、Swiftは_自動的に_使用された値をアンラップできるようになることです。 これは通常の状況の反対です。 通常は、値を格納していることがはっきりしたら`!`を使って値を強制アンラップします。 Implicitly Unwrapped のオプショナルでは、変数を宣言した時点から使用時に`nil`になることは_決してありません_。 そのため頻繁に利用する変数に関して、入力の手間や（見苦しさ！）を 省くことができるようになります。 ですが、初めて変数を読み取る前に、100%確実に値が代入されているようにするのが重要です。そうでないと異常終了してしまいます。
  */
 /*:
- ## Calling Methods on Optionals
+ ## Optionalsのメソッドを呼び出し
  
- In order to call methods on optionals, you must first give Swift something that is non-optional, either through an implicitly unwrapped optional or by force unwrapping the optional where the method is called. Calling a method directly on an optional is a compile-time error. Uncomment the following line to see:
+ オプショナルに対してメソッドを呼び出すには、まずSwiftに対してImplicitly Unwrapped Optionalまたはメソッドが呼び出されたオプショナルの強制アンラッピングのいずれかを通じて非オプショナルを与えます。 オプショナルでメソッドを直接呼び出すとコンパイル時エラーとなります。 次の行のコメントを外してみてください。
  */
 //let intDescription = maybeAnInt.description // Value of optional type 'Int?' not unwrapped!
 
 /*:
- But we're programmers and we like working around the rules. You don't have to give Swift a non-optional if you use a technique called **optional chaining**. Chaining allows you to try to call a method on an optional, which calls the method if the optional has a value, and returns `nil` if it does not. Chaining is performed by placing a question mark between the variable name and the dot, parenthesis, or bracket that follows it:
+ ですが私たちはプログラマー。ルールにどうにか対処できないかと取り組むのが好きです。 **オプショナルチェイニング**という手法を使えばSwiftに非オプショナルを与える必要がなくなります。 チェイニングは、オプショナルでメソッドをコールするためのテクニックで、オプショナルに値が含まれる場合はメソッドをコールし、含まれない場合は何も実行しません。 チェイニングを実行するには、変数名とドット、括弧、またはそれに続くブラケットの間に疑問符を置きます。
  */
 let optionalArray: [Int]? = [ 1, 2, 3, 4 ]
 let arrayLength = optionalArray?.count
 let firstElement = optionalArray?[0]
 /*:
- Placing a `?` after the name `optionalArray` will cause Swift to check whether the variable is `nil` before attempting to call `count` or access the array. The types of these expressions are optionals of the same type as the return type of method (so the call to `count`, which normally produces an `Int`, produces an `Int?` in this case). Phew! Still with us?
+ `optionalArray`という名前の後に`?`を付加すると、Swiftは`count`を呼び出したり、配列にアクセスしたりする前に、変数が`nil`かどうかを確認します。 こうした式の型はメソッドの戻り値の型と同じ型のOptionalsです (通常`Int`を返す`count`の呼び出しは`Int?`となります)。 ふぅ！ まだ大丈夫ですか？
  
- - experiment:
- Set `optionalArray` to `nil` and observe how the output values change.
+ - 実験：
+ - 実験: `optionalArray`を`nil`に設定して、出力変数がどのように変化するか観察します。
  */
 /*:
- ## The Nil Coalescing Operator
+ ## Nil合体演算子
  //:
- //: Sometimes we want to use a default value in the place of an optional when it turns out to be `nil`. For example, we might want to provide a placeholder name for an object when its own `name` property is `nil`, or use 0 if an integer is `nil`.
- //: (If you know Java, you may recognize this as similar to the "conditional", or "ternary" operator.)
+ オプショナルが`nil`の場合、既定の値を使いたいこともあるでしょう。 例えば、独自の`name`プロパティが`nil`のときは、オブジェクトのプレースホルダー名を用意したり、integerが`nil`のときは0を使用したいかもしれません。
+ //: (Javaをご存知なら、「conditional」や「ternary」演算子に似ていることにお気づきかもしれません。)
  
- //: Swift provides a way to do this very compactly: the nil-coalescing operator (`??`). When the optional to the left of the operator has a value, that value becomes the value of the expression. When the optional is `nil`, the value of the expression is the value on the right of the operator. Let's look at an example:
+ Swiftにはこれを非常にコンパクトに行う手段が用意されています。nil 結合演算子（`??`）です。 演算子の左側のOptionalが値を持つ場合、その値は式の値となります。 Optionalが`nil`の場合は、式の値は演算子の右側の値となります。 例を見てみましょう。
  */
 let optionalString: String? = nil
 let petName = optionalString ?? "Fido"
-//: So if `optionalString` is not nil, we'll set `petName` to the value of `optionalString`. If it is nil, we'll set `petName` to "Fido".
+`optionalString`がnilでない場合は`petName`に`optionalString`の値を設定します。 nilなら`petName`に`Fido`を設定します。
 /*:
- ## Recap
+ ## おさらい
  
- In this Playground we have looked at some of the capabilities of optionals in Swift. Optionals are a fundamental part of Swift that allow us to be very clear about when variables contain values and when they do not. All of the rules associated with optionals can be confusing at first, but you will quickly gain an intuition by putting your knowledge into practice. The compiler will try to help you along the way, reminding you when you make mistakes.
+  このPlaygroundでは、Swiftのオプショナルの機能をいくつか見てきました。 オプショナルはSwiftの欠かせない一部で、変数がいつ値を格納し、いつ格納しないかを非常に明確にすることができます。 Optionalsに関するルールはどれも最初は頭を混乱させるかもしれませんが、知識を実践に移すことですぐに直感的に理解できます。 その過程でコンパイラが間違いを知らせて、あなたを助けてくれるでしょう。
  */
 
 
@@ -105,32 +105,32 @@ let petName = optionalString ?? "Fido"
 
 /*:
  
- ## Challenge
+ ## 課題
  
- Optionals are variables that may have a value but sometimes do not. This can occur more often than you would think! Anytime your app reaches out to internet, you can't be sure that you will get the results you are expecting. This values will always be an optional.
+ オプショナルは、値を持ったり持たなかったりできる変数です。 これは想像しているよりも頻繁に起こります！ アプリがインターネットにアクセスすると、期待している結果が得られるとは確信できない場合があります。 この値は常にオプショナルになります。
  
- Use the concepts covered in this section to test your knowledge and expand your skills.
+ このセクションで取り上げた概念を使用して知識をテストし、スキルを広げましょう。
  
- - callout(Challenge): You are writing an app that deals with usernames retreived from the internet.
+ - callout(課題)： インターネットから取得したユーザー名を使用するアプリを作成しています。
  
- 1. Imagine your app will display a username if availble. If no user is signed in you can display their name. This might be a good place for an optional. Define a variable named `username`, and make it type `String?` (optional)
+ 1. ユーザー名がある場合はこれを表示するアプリを想像してください。 サインインしているユーザーがいない場合は、その名前を表示できます。 これにはオプショナルが適しているかもしれません。 `username`という名前の変数を定義し、`String?`型 (オプショナル) にします。
  
- 2. Print the value of `username`. You should get `nil`.
+ 2. `username`の値を出力します。 `nil`と表示されるはずです。
  
- 3. Set the value of `username` to any name.
+ 3. `username`の値を任意の名前に設定します。
  
- 4. Print `username` again. You should see something like: `Optional("Joe")`
+ 4. `username`を再度出力します。 `Optional("Joe")`のように表示されます。
  
- 5. Now that `username` has a value you can safely unwrap it with the `!`. Print the force unwrapped username.
+ 5. `username`には値があるので`!`でアンラップできます。 強制アンラップされたユーザー名を出力します。
  
- 6. Force unwrapping is a good habit! Print `username` with optional binding instead (`if let`).
+ 6. 強制アンラップは良い習慣です！ 代わりにオプショナル バインディング (`if let`)で`username`を出力します。
  
- 7. Use the nil-coalescing operator to set the value of a variable to the value of `username`, or to `"Anonymous"` if `username` is `nil`.
+ 7. nil 結合演算子を使用して変数の値を`username`の値、または`username`が`nil`の場合は`"Anonymous"`に設定します。
  
  */
 
 
-// Write your answers here:
+// ここにあなたの答えを書いてください：
 
 
 
@@ -146,7 +146,7 @@ let petName = optionalString ?? "Fido"
  ## Answers
  
  */
-// Your answer should look similar to this
+// あなたの答えはこのように見えるはずです
 /*
  var username: String?   // 1
  print(username)         // 2
@@ -161,5 +161,5 @@ let petName = optionalString ?? "Fido"
  let message = username ?? "Anonymous" // 7
  */
 /*:
- [Next](@next)
+ //: [次へ](@next)
  */

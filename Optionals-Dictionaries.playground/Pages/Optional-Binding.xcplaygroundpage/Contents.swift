@@ -1,58 +1,58 @@
 /*:
  ![Make School Banner](./swift_banner.png)
  
- # Optional Binding
+ ## オプショナルバインディング
  
- A more "Swift-y" way of testing and using an optional value is called **optional binding**. To do this we test for the presence of a value and, if it exists, we create a new variable for this value in a narrower scope. Here, we "bind" the value of `optionalInt` (if present) to a newly scoped constant named `optionalInt`, which only exists inside the `if/else` block, and print it...
+ オプショナルの値をより「Swiftらしく」試験し、使用する方法は、**オプショナルバインディング**と呼ばれます。これを実行するには、値が存在するか否かをテストし、存在する場合はより狭いスコープでこの値のために新しい変数を作成します。ここで、`optionalInt`（存在する場合）の値を新しいスコープの定数（`optionalInt`）にバインドし、出力します。この定数は`if/else`ブロック内にのみ存在します。
  
  */
 var optionalInt: Int? = 15
 if let optionalInt = optionalInt {
-    print("optionalInt contains a value, and it is \(optionalInt)")
+    print("optionalIntは値を含んでいます。それは \(optionalInt)です。")
 } else {
-    print("optionalInt does not contain a value")
+    print("optionalIntは値を含んでいません。")
 }
-print("Outside of the 'if let', optionalInt contains \(optionalInt)")
+print("'if let'の外で, optionalIntは \(optionalInt)を含んでいます。")
 /*:
  
- The first time you see this, it's a bit confusing. Worry not though, you'll get used to the syntax soon enough. Notice how this printed to the console:
+ 初めてだと少し戸惑うかもしれません。でも、ご安心を。構文に慣れるまで、それほど時間はかかりません。これがどのようにコンソールに出力されるかに注目してください。
  
-     optionalInt contains a value, and it is 15
-     Outside of the 'if let', optionalInt contains Optional(15)
+     optionalIntには値として15が含まれる
+     「if let」の外で、optionalIntはOptional(15)を含む
  
- Think about that output for a moment.
+ この出力内容について少し考えてみてください。
  
- - callout(Challange): Why did the second print statement print the value as `Optional(15)` and not `15` like the first?
+ - callout(課題): 2番目のprintステートメントが、1番目のように値を`15`ではなく`Optional(15)`として出力したのはなぜですか？
  
- - callout(Answer): The "bound and unwrapped" value only exists inside of the if-let-statement. It does not exist in the else-statement or outside the if-let. When we leave the if-let, `optionalInt` goes back to being a regular optional.
+ - callout(回答): 「バインドおよびアンラップされた」値はif-letステートメントの内側にのみ存在します。elseステートメント内またはif-letの外には存在しません。if-letをそのままにすると、`optionalInt`は通常のオプショナル型に戻ります。
  
  - experiment:
- Try changing the value of `optionalInt` again, and again take note that if it contains a value, the message indicates this and the local variable `optionalInt` has the same value. If it doesn't contain a value, then if-let-statement fails, it will go to the else-statement, and an unwrapped `optionalInt` won't be created.
+ `optionalInt`の値をもう一度変更してみてください。値が含まれる場合には、その旨を示すメッセージが出力され、ローカル変数`optionalInt`にも同じ値が含まれることにもう一度注目してください。値が含まれない場合、if-letステートメントは失敗して、elseステートメントに移動します。アンラップされた`optionalInt`は作成されません。
  
- ## This does the same thing as the last page
+ ## これは最後のページと同じことをします
  
- Yes it does! Like we said, this is just a more "Swift-y" way of doing the same thing. If you stick to this if-let syntax, your code will be safer. 
+ はい、できました！ 前にも言ったように、こちらの方がもう少し「Swiftらしい」方法です。このif-let構文を使うと、コードはより安全になります。
  
- ### Why does this make your code safer?
+ ### なぜあなたのコードはより安全になりますか？
  
- If you use the `!= nil` syntax when you need to work with the actual value, then you have to use "force unwrapping" with the `!` we saw on the last page. Remember what we said about "force unwrapping"? If the value does not exist, then your code will crash! By sticking to if-let you never have to "force unwrap" and you will not accidentally forget to check for `nil`.
+  実際の値を使用しなければならないときに`!= nil`構文を使用すると、1つ前のページで見た「!」による「強制アンラップ」を使用しなければなりません。「強制アンラップ」の説明を覚えていますか？ 値がないと、コードは異常終了してしまいます！ if-letを使用することで「強制アンラップ」する必要がなくなり、`nil`をチェックし忘れることもなくなります。
  
- ## A repeat challenge
+ ## 繰り返しチャレンジ
  */
 /*:
- - callout(Challenge): Define an array of optional `Int` below that contains:
+ - callout(課題): 以下を格納するオプショナルの`Int`の配列を定義してください。
  
          [555, nil, 331, 135, 2213, nil, nil, 232, nil, nil]
  
-     Write code to iterate through the array and count the number of `nil` values while also summing all the non-nil values. This time, make sure to use "optional binding". You should not need any `nil` checks for this solution!
+     配列を繰り返して`nil`の数をカウントし、その一方でnil以外の値もすべて合計するコードを作成してください。今回は必ず「オプショナル バインディング」を使用してください。この解決策では`nil`のチェックは必要ありません！
      
-     Print the the values you just computed to the console as:
+     計算したばかりの値を次のようにコンソールに出力します。
      
-         "There were \(numberOfNils) nil values and the sum is \(sum)"
+         "nilの値は \(numberOfNils) つで、合計は \(sum)"
      
-     You should see this in the console if you did everything correctly:
+     すべて正しく指定した場合、コンソールには次のメッセージが表示されます。
      
-         There were 5 nil values and the sum is 3466.
+         nilの値は 5 つで、合計は 3466
  
  */
 
@@ -61,5 +61,5 @@ print("Outside of the 'if let', optionalInt contains \(optionalInt)")
 
 
 /*:
- [Previous](@prev) | [Next](@next)
+ [前へ](@previous) | [次へ](@next)
  */

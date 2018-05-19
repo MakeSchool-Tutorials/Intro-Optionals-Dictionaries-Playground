@@ -1,51 +1,51 @@
 /*:
  ![Make School Banner](./swift_banner.png)
- # Optionals in Swift
+ # Swiftのオプション
  
- ## Another Introduction to Optionals
+ ## オプションの別の紹介
  
- We've talked a bit about _optionals_ before, but let's recap and discuss some best practices!
+ これまでにオプショナル型については少し説明しましたが、ここで復習を兼ねてベストプラクティスをいくつかご紹介します！
  
- ### Why Optionals?
+ ### なぜオプション？
  
- Sometimes, it's useful to express the fact that a variable may contain a value or no value at all. Swift allows us to do this with **optionals**. Optionals contain **either** a value **or** nothingness -- we call this `nil`. Optionals are like a box. There might be something inside or it might be empty but you can't know until you open it!
+ プログラミングでは、変数が値を含むことも含まないこともあるという事実を表現できると便利な場合があります。Swiftでは、**オプショナル**を使用してこれを実現できます。オプショナル型は、値**または**何もない状態（「nil」と呼びます）の**いずれか**を保持します。オプショナル型は箱のようなものです。中に何か入っている場合もあれば、空の場合もありますが、開けてみるまでわかりません！
  
- We can declare any variable (not constants) as an optional by putting a question mark (`?`) at the end of the type's name. For example, we can declare a variable of type `Int?` (read as "optional `Int`"):
+ 任意の変数（定数以外）をオプショナル型として宣言するには、型名の最後に疑問符（「?」）を付けます。例えば、「Int?」型の変数を宣言できます（「オプショナル型の「Int」と読みます」）。
  */
 var maybeAnInt: Int? = 15
-//: Here, we have expressly given the variable a value of 15, but we could just as easily have assigned it `nil`:
+//: ここでは、15の変数値を明確に設定しましたが、それと同じぐらい簡単に`nil`を割り当てることもできました:
 maybeAnInt = nil
 /*: 
- Now `maybeAnInt` is `nil`, which is to say it has _no value_. If `maybeAnInt` had declared as a regular `Int`, we could not have set it to `nil`.
+ ここで「maybeAnInt」が「nil」（値がない状態）です。「maybeAnInt」を通常の「Int」として宣言していたら、「nil」に設定することはできなかったでしょう。
  
- ## Why would I ever want an empty variable?
+ ## なぜ空変数が必要なのでしょうか？
  
- Remember _Game of Life_ and the _Grid Simulations_ tutorials? We created a two dimensional `Array` of `Character?` to represent the grid. Sometimes a cell had a value, sometimes it did not. When it did not, we used `nil`.
+ ゲーム・オブ・ライフとグリッドシミュレーションのチュートリアルは覚えていますか？ グリッドを表すため「Character?」の二次元の「配列」を作成しました。セルに値が含まれることもあれば、含まれないこともありました。値が含まれていなかった場合には、「nil」を使用していました。
  
- If you think back, you'll remember that you only ever set the value the `Character?` and checked if they had a value in those tutorials. Let's discuss how you can actually work with optionals!
+ これらのチュートリアルでは、値を「Character?」に設定し、値が含まれるか否かをチェックしただけだったことを思い出してください。では、実際にオプショナル型を使ってみましょう！
 
- ## Unwrapping an Optional
+ ## Optionalのアンラップ
  
- When we retrieve the value from an optional, must "unwrap it". This is like opening the box and seeing whether or not there's anything inside. You might remember this from earlier, but we can test whether an optional has a value by comparing it to `nil` in a conditional. If it is not equal to `nil`, it contains a value. Woo hoo!
+ オプショナル型から値を取得するときは、「アンラップ」する必要があります。これは箱を開けて、中身を確認する行為に似ています。前にも説明があったのを覚えているかもしれませんが、条件を「nil」にした場合と比較することで、オプショナル型に値が含まれるか否かをテストできます。「nil」と等しくない場合は、値が含まれます。実に簡単です！
  
- We can then safely use **force unwrapping** to get its value. Force unwrapping is done by putting an exclamation point (`!`) after the name of the variable we want to unwrap. This tells Swift that the optional contains a value and we want to read it.
+ 次に、**強制アンラップ**を安全に使用してその値を取得できます。強制アンラップを実行するには、アンラップしたい変数名の後に感嘆符（「!」）を付けます。これはSwiftに対して、オプション型には私たちの読み取りたい値が含まれていると伝えます。
  
- - important: If we're wrong, the code will crash. Here, we test whether `maybeAnInt` has a value and if it does, we rip open the box (force unwrap it) and print its value. Make sure to _ALWAYS_ check for `nil` before force unrwrapping an optional. Code that crashes is bad code!
+ - 重要：指定を間違えるとコードはクラッシュします。その場合、「maybeAnInt」に値が含まれるか否かをテストし、含まれる場合は強制的に箱を開け（強制アンラップを実行し）、その値を出力します。オプショナル型の強制アンラップを実行する前に、必ず「nil」がないかチェックしてください。クラッシュするコードは不良コードです！
  
  */
 if maybeAnInt != nil {
-    print("maybeAnInt contains a value, and it is \(maybeAnInt!).")
+    print("maybeAnIntは値を含んでいます。それは \(maybeAnInt!)です。")
 } else {
-    print("maybeAnInt does not contain a value.")
+    print("maybeAnIntは値を含んでいません。")
 }
 /*:
  
  - experiment:
- Go back to line 17 and try changing the value of `maybeAnInt` from `nil` to something else. Notice the message is printed depending on the value.
+ 17行目に戻り、「maybeAnInt」の値を「nil」から別の値に変更してみましょう。値に応じてメッセージが出力されることに注目してください。
  
- ## A short challenge
+ ## 短い挑戦
  
- - callout(Challenge): Define an array of optional `Double` below that contains:
+ - callout(課題): 以下の値を含むオプショナル型の「Double」配列を下に定義してください。
  
         [154.4, nil, 133, 13.4, 221.3, nil, nil, 103.2]
  
@@ -55,20 +55,20 @@ if maybeAnInt != nil {
 
 /*:
  
- - callout(Challenge): Write code to iterate through the array and count the number of `nil` values while also summing all the non-nil values. Make sure to force unwrap each element safely!
+ - callout(課題): 配列を繰り返して「nil」の数をカウントし、その一方でnil以外の値もすべて合計するコードを作成してください。各要素を安全に強制アンラップしましょう！
  
-    Print the the values you just computed to the console as:
+    計算したばかりの値をコンソールに出力します。
 
-        "There were \(numberOfNils) nil values and the sum is \(sum)"
+        "nilの値は \(numberOfNils) つで、合計は \(sum)"
  
-    You should see this in the console if you did everything correctly:
+    すべて正しく指定した場合、コンソールには次のメッセージが表示されます。
  
-        There were 3 nil values and the sum is 625.3.
+        nilの値は 3 つで、合計は 625.3
  
  */
 
 
  
 /*:
- [Next](@next)
+ [次へ](@next)
  */

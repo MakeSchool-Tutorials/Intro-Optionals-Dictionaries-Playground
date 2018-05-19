@@ -1,20 +1,20 @@
 /*:
  ![Make School Banner](./swift_banner.png)
- # Dictionaries and Optionals Extended Challenge
+ # ディクショナリとオプションの拡張チャレンジ
  
- ## A more robust contact book
+ ## より堅牢な連絡先
  
- In this exercise, we will extend our previous challenge code to be more robust.
+ この練習では、前回の課題コードを拡張してもっと堅牢にします。
  
- ### Extended challenge
+ ### 延長チャレンジ
  
- Now that we have some basic code, it's time to "refactor" it!
+ 基本のコードが手に入ったので、「リファクタリング」します！
  
- 1. Create a `ContactBook` class. It should have the same functionality as the previous challenge, including `addContact`, `findContact`, `updateContact`, `deleteContact`, and `allContacts` methods.
- 1. Create a `ContactDetails` class. Replace your values with this class and update your methods accordingly. You'll want to update what they print out to make sense. We're going to leave this pretty open ended for you but here are some other values to consider: home phone, cell phone, email, Facebook profile, LinkedIn profile. How will you store these? Maybe you should use optionals... hint hint ;)
- 1. Create a few `ContactBook` objects and add data to them. Test them out!
+ 1. `ContactBook`クラスを作成します。 `addContact`、`findContact`、`updateContact`、`deleteContact`、`allContacts`の各メソッドなど、以前の課題と同じ機能を持っています。
+ 1. `ContactDetails`クラスを作成します。 値をこのクラスで置き換え、メソッドを適宜更新します。 出力したものを更新して、意味が通じるようにします。 これは自由な形式にしますが、次のようなその他の値も考慮する必要があります。 電話、携帯電話、電子メール、Facebookプロファイル、LinkedInプロファイル。 これらを保存するにはどうしたらいいのでしょうか？ オプショナルを使用した方が良いかもしれませんね... ヒントです ;)
+ 1. `ContactBook`オブジェクトをいくつか作成して、これらにデータを追加します。 テストしてみましょう！
  
- - callout(Additional Challenge): Try implementing a favorite contacts feature in `ContactBook`. All these contacts should be accessable via the normal methods but you should also include a new `favoriteContacts` method that only prints out your favorites!
+ - callout(追加の課題): `ContactBook`にお気に入りの連絡先機能を実装してください。 これらの連絡先は通常のメソッドからアクセスできるはずですが、お気に入りの連絡先だけを出力する新しい`favoriteContacts`メソッドも取り入れましょう！
  
  */
 
@@ -31,5 +31,5 @@
 
 
 /*:
- [Previous](@prev)
+ [前へ](@previous)
  */
