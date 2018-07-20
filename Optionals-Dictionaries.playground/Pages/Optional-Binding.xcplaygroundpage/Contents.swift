@@ -17,8 +17,8 @@ print("'if let'の外で, optionalIntは \(optionalInt)を含んでいます。"
  
  初めてだと少し戸惑うかもしれません。でも、ご安心を。構文に慣れるまで、それほど時間はかかりません。これがどのようにコンソールに出力されるかに注目してください。
  
-     optionalIntには値として15が含まれる
-     「if let」の外で、optionalIntはOptional(15)を含む
+     optionalIntは値を持っています。それは 15です。
+     'if let'の外で, optionalIntはOptional(15)を持っています。
  
  この出力内容について少し考えてみてください。
  
